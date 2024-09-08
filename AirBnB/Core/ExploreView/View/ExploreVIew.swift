@@ -10,14 +10,15 @@ import SwiftUI
 struct ExploreVIew: View {
     @StateObject var vm = ExploreViewModel()
     var body: some View {
-        VStack{
-            Image(systemName: "trophy")
-            ForEach(vm.listings) {listing in
-            //    Text(listing.title)
-                NavigationLink(value: listing) {
-                    Text(listing.title)
+        ScrollView{
+            LazyVStack{
+                ForEach(vm.listings) {listing in
+                    NavigationLink(value: listing) {
+                        ListingRowView(listing: listing)
+                    }
+                }.navigationDestination(for: ListingsModel.self) { listing in
+                    ListingDetailView()
                 }
-                
             }
         }
     }
