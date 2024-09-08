@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ListingsModel : Identifiable, Codable  {
+struct ListingsModel : Identifiable, Codable, Hashable  {
     var id = UUID().uuidString
     let title : String
     let rating : Double

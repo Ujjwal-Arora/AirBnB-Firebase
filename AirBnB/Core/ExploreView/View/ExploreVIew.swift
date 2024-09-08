@@ -13,7 +13,10 @@ struct ExploreVIew: View {
         VStack{
             Image(systemName: "trophy")
             ForEach(vm.listings) {listing in
-                Text(listing.title)
+            //    Text(listing.title)
+                NavigationLink(value: listing) {
+                    Text(listing.title)
+                }
                 
             }
         }
@@ -21,5 +24,7 @@ struct ExploreVIew: View {
 }
 
 #Preview {
-    ExploreVIew()
+    NavigationStack{
+        ExploreVIew()
+    }
 }

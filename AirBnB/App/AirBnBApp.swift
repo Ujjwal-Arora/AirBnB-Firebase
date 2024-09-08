@@ -11,7 +11,9 @@ import SwiftUI
 struct AirBnBApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            NavigationStack{
+                MainTabView()
+            }
         }
     }
 }

@@ -24,9 +24,7 @@ struct MainTabView: View {
                 .tabItem {
                 Image(systemName: "person")
                     Text("Person")
-                }
-
-            
+                }            
         }
     }
 }
