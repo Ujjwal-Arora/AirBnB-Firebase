@@ -19,14 +19,35 @@ class ListingsModel : Identifiable, Codable  {
     let numberOfBathrooms : Int
     let latitude : Double
     let longitude : Double
-    let imageUrl : String
     let address : String
     let city : String
     let state : String
     let country : String
+    let imageUrl : [String]
     var amenities : [Amenitie]
     var features : [Feature]
     var buildingType : BuildingType
+    
+    init(title: String, rating: Double, pricePerNight: Int, ownerId: String, ownerName: String, ownerImageUrl: String, numberOfBedrooms: Int, numberOfBathrooms: Int, latitude: Double, longitude: Double, address: String, city: String, state: String, country: String, imageUrl: [String], amenities: [Amenitie], features: [Feature], buildingType: BuildingType) {
+        self.title = title
+        self.rating = rating
+        self.pricePerNight = pricePerNight
+        self.ownerId = ownerId
+        self.ownerName = ownerName
+        self.ownerImageUrl = ownerImageUrl
+        self.numberOfBedrooms = numberOfBedrooms
+        self.numberOfBathrooms = numberOfBathrooms
+        self.latitude = latitude
+        self.longitude = longitude
+        self.address = address
+        self.city = city
+        self.state = state
+        self.country = country
+        self.imageUrl = imageUrl
+        self.amenities = amenities
+        self.features = features
+        self.buildingType = buildingType
+    }
 }
 enum Amenitie : Int, Identifiable, Codable , Hashable{
     case selfCheckIn , superHost
