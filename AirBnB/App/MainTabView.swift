@@ -30,5 +30,7 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView()
+    NavigationStack{
+        MainTabView()
+    }
 }

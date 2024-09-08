@@ -14,12 +14,28 @@ struct ExploreVIew: View {
             LazyVStack{
                 ForEach(vm.listings) {listing in
                     NavigationLink(value: listing) {
-                        ListingRowView(listing: listing)
-                    }
-                }.navigationDestination(for: ListingsModel.self) { listing in
-                    ListingDetailView()
+                        VStack{
+                        ListingImageCarouselView(listing: listing)
+                        
+                            HStack(alignment: .top){
+                                VStack(alignment : .leading){
+                                    Text("\(listing.city), \(listing.state)")
+                                        .bold()
+                                    Text("Rs.\(listing.pricePerNight) per night")
+                                }
+                                Spacer()
+                                HStack(spacing : 2){
+                                    Image(systemName: "star.fill")
+                                    Text(listing.rating.formatted())
+                                }
+                            }.font(.footnote)
+                        }
+
+                    }.padding(.horizontal)
                 }
-            }
+            }.foregroundStyle(.black)
+        }.navigationDestination(for: ListingsModel.self) { listing in
+            ListingDetailView(listing: listing)
         }
     }
 }

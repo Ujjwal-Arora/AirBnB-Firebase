@@ -15,6 +15,7 @@ struct ListingsModel : Identifiable, Codable, Hashable  {
     let ownerId : String
     let ownerName : String
     let ownerImageUrl : String
+    let maximumGuests : Int
     let numberOfBedrooms : Int
     let numberOfBathrooms : Int
     let latitude : Double
@@ -28,13 +29,14 @@ struct ListingsModel : Identifiable, Codable, Hashable  {
     var features : [Feature]
     var buildingType : BuildingType
     
-    init(title: String, rating: Double, pricePerNight: Int, ownerId: String, ownerName: String, ownerImageUrl: String, numberOfBedrooms: Int, numberOfBathrooms: Int, latitude: Double, longitude: Double, address: String, city: String, state: String, country: String, imageUrl: [String], amenities: [Amenitie], features: [Feature], buildingType: BuildingType) {
+    init(title: String, rating: Double, pricePerNight: Int, ownerId: String, ownerName: String, ownerImageUrl: String, maximumGuests: Int, numberOfBedrooms: Int, numberOfBathrooms: Int, latitude: Double, longitude: Double, address: String, city: String, state: String, country: String, imageUrl: [String], amenities: [Amenitie], features: [Feature], buildingType: BuildingType) {
         self.title = title
         self.rating = rating
         self.pricePerNight = pricePerNight
         self.ownerId = ownerId
         self.ownerName = ownerName
         self.ownerImageUrl = ownerImageUrl
+        self.maximumGuests = maximumGuests
         self.numberOfBedrooms = numberOfBedrooms
         self.numberOfBathrooms = numberOfBathrooms
         self.latitude = latitude
@@ -68,13 +70,21 @@ enum Amenitie : Int, Identifiable, Codable , Hashable{
             return "medal"
         }
     }
+    var description : String {
+        switch self {
+        case .selfCheckIn:
+            return "door.left.hand.open"
+        case .superHost:
+            return "medal"
+        }
+    }
     
     var id: Int {
         return self.rawValue
     }
 }
 enum Feature : Int, Identifiable, Codable , Hashable{
-    case pool,kitchen,wifi,tv,laundry,alarmSystem,fireSafety,officeSpace,balcony
+    case pool,kitchen,wifi,tv,laundry,alarmSystem,fireSafety,petsAllowed,balcony
     
     var title : String {
         switch self {
@@ -92,8 +102,8 @@ enum Feature : Int, Identifiable, Codable , Hashable{
             return "Alarm System"
         case .fireSafety:
             return "Fire Safety"
-        case .officeSpace:
-            return "Office Space"
+        case .petsAllowed:
+            return "Pets Allowed"
         case .balcony:
             return "Balcony"
         }
@@ -101,7 +111,7 @@ enum Feature : Int, Identifiable, Codable , Hashable{
     var imageName : String {
         switch self {
         case .pool:
-            return "figure.pool.swim.circle"
+            return "figure.pool.swim"
         case .kitchen:
             return "fork.knife"
         case .wifi:
@@ -111,11 +121,11 @@ enum Feature : Int, Identifiable, Codable , Hashable{
         case .laundry:
             return "washer"
         case .alarmSystem:
-            return "shield.pattern.checkered"
+            return "bolt.shield"
         case .fireSafety:
-            return "fire.extinguisher.fill"
-        case .officeSpace:
-            return "pencil.and.list.clipboard"
+            return "flame"
+        case .petsAllowed:
+            return "dog"
         case .balcony:
             return "building"
         }

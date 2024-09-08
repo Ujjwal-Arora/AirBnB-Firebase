@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class ExploreViewModel : ObservableObject {
     @Published var listings = [ListingsModel]()
      private let service = ExploreService()
