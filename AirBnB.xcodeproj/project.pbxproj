@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		A86814042C8DB54600931A9D /* AirBnBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86814032C8DB54600931A9D /* AirBnBApp.swift */; };
-		A86814062C8DB54600931A9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86814052C8DB54600931A9D /* ContentView.swift */; };
+		A86814062C8DB54600931A9D /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86814052C8DB54600931A9D /* MainTabView.swift */; };
 		A86814082C8DB54700931A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A86814072C8DB54700931A9D /* Assets.xcassets */; };
 		A868140B2C8DB54700931A9D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A868140A2C8DB54700931A9D /* Preview Assets.xcassets */; };
+		A89B45F92C8DB8C100250052 /* ListingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89B45F82C8DB8C100250052 /* ListingsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A86814002C8DB54600931A9D /* AirBnB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirBnB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86814032C8DB54600931A9D /* AirBnBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirBnBApp.swift; sourceTree = "<group>"; };
-		A86814052C8DB54600931A9D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A86814052C8DB54600931A9D /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		A86814072C8DB54700931A9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A868140A2C8DB54700931A9D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A89B45F82C8DB8C100250052 /* ListingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,13 @@
 		A86814022C8DB54600931A9D /* AirBnB */ = {
 			isa = PBXGroup;
 			children = (
-				A86814032C8DB54600931A9D /* AirBnBApp.swift */,
-				A86814052C8DB54600931A9D /* ContentView.swift */,
+				A89B45F62C8DB66300250052 /* App */,
+				A89B45F22C8DB62400250052 /* Core */,
+				A89B45F12C8DB61000250052 /* Extension */,
+				A89B45F72C8DB7AA00250052 /* Models */,
+				A89B45F32C8DB62A00250052 /* Views */,
+				A89B45F42C8DB63100250052 /* ViewModels */,
+				A89B45F52C8DB63800250052 /* Services */,
 				A86814072C8DB54700931A9D /* Assets.xcassets */,
 				A86814092C8DB54700931A9D /* Preview Content */,
 			);
@@ -65,6 +72,58 @@
 				A868140A2C8DB54700931A9D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A89B45F12C8DB61000250052 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		A89B45F22C8DB62400250052 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A89B45F32C8DB62A00250052 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A89B45F42C8DB63100250052 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A89B45F52C8DB63800250052 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A89B45F62C8DB66300250052 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A86814032C8DB54600931A9D /* AirBnBApp.swift */,
+				A86814052C8DB54600931A9D /* MainTabView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A89B45F72C8DB7AA00250052 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A89B45F82C8DB8C100250052 /* ListingsModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +196,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A86814062C8DB54600931A9D /* ContentView.swift in Sources */,
+				A86814062C8DB54600931A9D /* MainTabView.swift in Sources */,
+				A89B45F92C8DB8C100250052 /* ListingsModel.swift in Sources */,
 				A86814042C8DB54600931A9D /* AirBnBApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
