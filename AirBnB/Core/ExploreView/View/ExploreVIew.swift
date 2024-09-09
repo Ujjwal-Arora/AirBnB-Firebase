@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ExploreVIew: View {
     @StateObject var vm = ExploreViewModel()
+    @State private var showFilters = false
     var body: some View {
         ScrollView{
+                    NavigationLink(destination: FiltersView()) {
+                        SearchAndFilterBar()
+                    }
             LazyVStack{
                 ForEach(vm.listings) {listing in
                     NavigationLink(value: listing) {

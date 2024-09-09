@@ -157,7 +157,9 @@ struct ListingDetailView: View {
                 Image(systemName: "chevron.backward.circle.fill")
                     .foregroundStyle(.white)
                     .font(.largeTitle)
-            }.padding(30)
+            }
+            .padding(.horizontal,20)
+            .padding(.vertical,50)
         Spacer()
         }
     }
