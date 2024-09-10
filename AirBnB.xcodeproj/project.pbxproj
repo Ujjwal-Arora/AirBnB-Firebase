@@ -14,8 +14,10 @@
 		A8833B6F2C90C63900AC7101 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8833B6E2C90C63900AC7101 /* GoogleService-Info.plist */; };
 		A8833B722C90C71F00AC7101 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A8833B712C90C71F00AC7101 /* FirebaseAuth */; };
 		A8833B742C90C90600AC7101 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B732C90C90600AC7101 /* UsersModel.swift */; };
-		A8833B7A2C90CA1100AC7101 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B792C90CA1100AC7101 /* AuthView.swift */; };
+		A8833B7A2C90CA1100AC7101 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B792C90CA1100AC7101 /* ProfileView.swift */; };
 		A8833B7C2C90CEC700AC7101 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B7B2C90CEC700AC7101 /* AuthViewModel.swift */; };
+		A8833B7E2C90DA4C00AC7101 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B7D2C90DA4C00AC7101 /* LoginView.swift */; };
+		A8833B802C90DA5400AC7101 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B7F2C90DA5400AC7101 /* SignUpView.swift */; };
 		A89B45F92C8DB8C100250052 /* ListingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89B45F82C8DB8C100250052 /* ListingsModel.swift */; };
 		A89B45FB2C8DCEA000250052 /* DeveloperPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89B45FA2C8DCEA000250052 /* DeveloperPreview.swift */; };
 		A89B45FF2C8DD55A00250052 /* ExploreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89B45FE2C8DD55A00250052 /* ExploreService.swift */; };
@@ -37,8 +39,10 @@
 		A868140A2C8DB54700931A9D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A8833B6E2C90C63900AC7101 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8833B732C90C90600AC7101 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
-		A8833B792C90CA1100AC7101 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		A8833B792C90CA1100AC7101 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A8833B7B2C90CEC700AC7101 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		A8833B7D2C90DA4C00AC7101 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A8833B7F2C90DA5400AC7101 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A89B45F82C8DB8C100250052 /* ListingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsModel.swift; sourceTree = "<group>"; };
 		A89B45FA2C8DCEA000250052 /* DeveloperPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperPreview.swift; sourceTree = "<group>"; };
 		A89B45FE2C8DD55A00250052 /* ExploreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreService.swift; sourceTree = "<group>"; };
@@ -123,7 +127,9 @@
 		A8833B772C90C9ED00AC7101 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A8833B792C90CA1100AC7101 /* AuthView.swift */,
+				A8833B792C90CA1100AC7101 /* ProfileView.swift */,
+				A8833B7D2C90DA4C00AC7101 /* LoginView.swift */,
+				A8833B7F2C90DA5400AC7101 /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,14 +316,16 @@
 				A89B45FB2C8DCEA000250052 /* DeveloperPreview.swift in Sources */,
 				A89B460E2C8E402700250052 /* SearchAndFilterBar.swift in Sources */,
 				A8833B742C90C90600AC7101 /* UsersModel.swift in Sources */,
-				A8833B7A2C90CA1100AC7101 /* AuthView.swift in Sources */,
+				A8833B7A2C90CA1100AC7101 /* ProfileView.swift in Sources */,
 				A89B46102C8E480F00250052 /* FiltersView.swift in Sources */,
 				A89B45F92C8DB8C100250052 /* ListingsModel.swift in Sources */,
+				A8833B7E2C90DA4C00AC7101 /* LoginView.swift in Sources */,
 				A89B460C2C8DEA8900250052 /* ListingDetailView.swift in Sources */,
 				A89B46072C8DE0C700250052 /* ListingImageCarouselView.swift in Sources */,
 				A8833B7C2C90CEC700AC7101 /* AuthViewModel.swift in Sources */,
 				A89B46022C8DD61000250052 /* ExploreVIew.swift in Sources */,
 				A86814042C8DB54600931A9D /* AirBnBApp.swift in Sources */,
+				A8833B802C90DA5400AC7101 /* SignUpView.swift in Sources */,
 				A89B46042C8DD65500250052 /* ExploreViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
