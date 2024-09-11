@@ -22,7 +22,7 @@ struct LoginView: View {
             Button("logIn") {
                 Task{
                     try await vm.logIn()
-                    if vm.currentUserSession != nil{
+                    if vm.currentAuthUserSession != nil{
                         dismiss()
                     }
                 }

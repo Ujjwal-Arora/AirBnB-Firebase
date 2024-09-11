@@ -53,8 +53,7 @@ struct SignUpView: View {
                         vm.profilePhotoUrl = photoPickerVM.imageUrl
                     }
                     try await vm.signUp()
-                    
-                    if vm.currentUserSession != nil{
+                    if vm.currentAuthUserSession != nil{
                         dismiss()
                     }
                 }

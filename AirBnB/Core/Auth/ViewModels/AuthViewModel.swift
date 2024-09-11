@@ -13,7 +13,8 @@ import FirebaseFirestore
 
 @MainActor
 class AuthViewModel : ObservableObject {
-    @Published var currentUserSession : FirebaseAuth.User? = nil
+    @Published var currentAuthUserSession : FirebaseAuth.User? = nil
+    @Published var currentUser : UsersModel?
     
     @Published var email : String = ""
     @Published var password : String = ""
@@ -24,13 +25,16 @@ class AuthViewModel : ObservableObject {
     var authService = Auth.auth()
     
     init() {
-        currentUserSession = authService.currentUser
+        Task{
+            try await fetchUserDataFromFirestore()
+        }
     }
     func logIn() async throws{
         do {
             let result = try await authService.signIn(withEmail: email, password: password)
-            self.currentUserSession =  result.user
+            self.currentAuthUserSession =  result.user
             print("login func done : \(result.user.email ?? "no user")")
+            try await fetchUserDataFromFirestore()
 
         }catch{
             print(error.localizedDescription)
@@ -39,9 +43,11 @@ class AuthViewModel : ObservableObject {
     func signUp() async throws{
         do {
             let result = try await authService.createUser(withEmail: email, password: password)
-            self.currentUserSession =  result.user
+            self.currentAuthUserSession =  result.user
             print("signup func done : \(result.user.email ?? "no user")")
             try await self.uploadUserDataToFirestore(id : result.user.uid)
+            try await fetchUserDataFromFirestore()
+
 
         }catch{
             print(error.localizedDescription)
@@ -50,10 +56,9 @@ class AuthViewModel : ObservableObject {
     func signOut(){
         do {
             try authService.signOut()
-            self.currentUserSession = nil
-            print("signOut func done : \(currentUserSession?.email ?? "no user")")
-
-
+            self.currentAuthUserSession = nil
+            self.currentUser = nil
+            print("signOut func done : \(currentAuthUserSession?.email ?? "no user")")
         }catch{
             print(error.localizedDescription)
         }
@@ -62,5 +67,11 @@ class AuthViewModel : ObservableObject {
         let newUser = UsersModel(email: email, password: password, profilePhotoUrl: profilePhotoUrl)
         guard let encodedUser = try? Firestore.Encoder().encode(newUser) else { return }
         try await Firestore.firestore().collection("users").document(id).setData(encodedUser)
+    }
+    func fetchUserDataFromFirestore() async throws{
+        self.currentAuthUserSession = authService.currentUser
+        guard let uid = currentAuthUserSession?.uid else {return}
+        self.currentUser = try await Firestore.firestore().collection("users").document(uid).getDocument(as: UsersModel.self)
+        print(currentUser ?? "no user")
     }
 }
