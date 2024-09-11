@@ -13,4 +13,6 @@ struct UsersModel : Identifiable , Codable {
     let email : String
     let password : String
     let profilePhotoUrl : String?
+    let fullname : String?
+
 }

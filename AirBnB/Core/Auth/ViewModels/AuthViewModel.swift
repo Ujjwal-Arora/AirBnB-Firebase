@@ -47,8 +47,6 @@ class AuthViewModel : ObservableObject {
             print("signup func done : \(result.user.email ?? "no user")")
             try await self.uploadUserDataToFirestore(id : result.user.uid)
             try await fetchUserDataFromFirestore()
-
-
         }catch{
             print(error.localizedDescription)
         }
@@ -64,7 +62,7 @@ class AuthViewModel : ObservableObject {
         }
     }
     func uploadUserDataToFirestore(id : String) async throws{
-        let newUser = UsersModel(email: email, password: password, profilePhotoUrl: profilePhotoUrl)
+        let newUser = UsersModel(email: email, password: password, profilePhotoUrl: profilePhotoUrl,fullname: fullname)
         guard let encodedUser = try? Firestore.Encoder().encode(newUser) else { return }
         try await Firestore.firestore().collection("users").document(id).setData(encodedUser)
     }

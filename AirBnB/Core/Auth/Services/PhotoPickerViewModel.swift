@@ -28,7 +28,7 @@ class PhotoPickerViewModel : ObservableObject {
         outputUiImage = UIImage(data: data)
     }
     func uploadUiImageToFirebaseStorage() async throws{
-        guard let data = outputUiImage?.jpegData(compressionQuality: 0.5) else {return}
+        guard let data = outputUiImage?.jpegData(compressionQuality: 0.1) else {return}
         let filename = UUID().uuidString
         let storageReference = Storage.storage().reference(withPath: "profileImage/\(filename)")
         do{

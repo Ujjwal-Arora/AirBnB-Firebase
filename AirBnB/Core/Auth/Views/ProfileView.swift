@@ -13,6 +13,8 @@ struct ProfileView: View {
     @StateObject private var vm = AuthViewModel()
     var body: some View {
         VStack{
+            Text(vm.currentUser?.fullname ?? "no name")
+            
             Text(vm.profilePhotoUrl ?? "no photo url in publisher")
             
             Text(vm.currentUser?.profilePhotoUrl ?? "no photo url in current user")

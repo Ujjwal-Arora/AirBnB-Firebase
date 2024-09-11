@@ -41,6 +41,7 @@ struct SignUpView: View {
                 Text("Chage Profile Photo")
             }
             
+            TextField("Enter fullname", text: $vm.fullname)
             TextField("Enter email", text: $vm.email)
             TextField("Enter password", text: $vm.password)
             Text(Auth.auth().currentUser?.email ?? "no user")
