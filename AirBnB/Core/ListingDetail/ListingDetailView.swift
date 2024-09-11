@@ -50,10 +50,7 @@ struct ListingDetailView: View {
             HStack(spacing : 3){
                 Image(systemName: "star.fill")
                 Text(listing.rating.formatted())
-                    .fontWeight(.semibold)
-                
-                Text("28 reviews") //click to read the reviews
-                    .underline()
+                    .fontWeight(.semibold)                
             }
             Text("\(listing.city), \(listing.state)")
         }.padding()

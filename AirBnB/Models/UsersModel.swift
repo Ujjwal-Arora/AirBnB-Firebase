@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct UsersModel : Identifiable , Codable {
-    var id = UUID().uuidString
+    @DocumentID var id : String?
     let email : String
     let password : String
-    
+    let profilePhotoUrl : String?
 }
