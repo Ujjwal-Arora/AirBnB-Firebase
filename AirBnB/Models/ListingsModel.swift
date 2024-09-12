@@ -10,11 +10,11 @@ import Foundation
 struct ListingsModel : Identifiable, Codable, Hashable  {
     var id = UUID().uuidString
     let title : String
-    let rating : Double
+    let rating : Double //remove this as i wont be calculating this. Priority 0 functions banane h jaan mat le meri
     let pricePerNight : Int
     let ownerId : String
-    let ownerName : String
-    let ownerImageUrl : String
+    let ownerName : String //remove this as i am putting owner as UserModel
+    let ownerImageUrl : String //remove this as i am putting owner as UserModel
     let maximumGuests : Int
     let numberOfBedrooms : Int
     let numberOfBathrooms : Int
@@ -28,8 +28,9 @@ struct ListingsModel : Identifiable, Codable, Hashable  {
     var amenities : [Amenitie]
     var features : [Feature]
     var buildingType : BuildingType
+    var actualOwner : UsersModel
     
-    init(title: String, rating: Double, pricePerNight: Int, ownerId: String, ownerName: String, ownerImageUrl: String, maximumGuests: Int, numberOfBedrooms: Int, numberOfBathrooms: Int, latitude: Double, longitude: Double, address: String, city: String, state: String, country: String, imageUrl: [String], amenities: [Amenitie], features: [Feature], buildingType: BuildingType) {
+    init(title: String, rating: Double, pricePerNight: Int, ownerId: String, ownerName: String, ownerImageUrl: String, maximumGuests: Int, numberOfBedrooms: Int, numberOfBathrooms: Int, latitude: Double, longitude: Double, address: String, city: String, state: String, country: String, imageUrl: [String], amenities: [Amenitie], features: [Feature], buildingType: BuildingType, actualOwner : UsersModel) {
         self.title = title
         self.rating = rating
         self.pricePerNight = pricePerNight
@@ -49,6 +50,7 @@ struct ListingsModel : Identifiable, Codable, Hashable  {
         self.amenities = amenities
         self.features = features
         self.buildingType = buildingType
+        self.actualOwner = actualOwner
     }
 }
 enum Amenitie : Int, Identifiable, Codable , Hashable{

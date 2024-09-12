@@ -13,11 +13,12 @@ import PhotosUI
 struct SignUpView: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var vm : AuthViewModel
-    @StateObject var photoPickerVM = PhotoPickerViewModel()
+    @StateObject var photoPickerVM = PhotoPickerViewModel1()
+    @State private var selectedPickerItemInSignUp : PhotosPickerItem?
 
     var body: some View {
         VStack{
-            if let uiImage = photoPickerVM.outputUiImage{
+            if let uiImage = photoPickerVM.outputUiImages.first{
                 Image(uiImage: uiImage)
                     .resizable()
                     .scaledToFill()
@@ -32,13 +33,19 @@ struct SignUpView: View {
             
             Button("click for storage") {
                 Task{
-                    try await photoPickerVM.uploadUiImageToFirebaseStorage()
+                    try await photoPickerVM.uploadUiImageToFirebaseStorage(folderName: "profileImages")
                 }
             }
-            Text(photoPickerVM.imageUrl ?? "no url")
+            Text(photoPickerVM.firebaseStorageImageUrls.first ?? "no url")
             
-            PhotosPicker(selection: $photoPickerVM.selectedPickerItem) {
+            PhotosPicker(selection: $selectedPickerItemInSignUp) {
                 Text("Chage Profile Photo")
+            }.onChange(of: selectedPickerItemInSignUp) { oldValue, newValue in
+                if let item = newValue{
+                    Task{
+                        try await photoPickerVM.loadPhotoPickerImage(selectedItems: [item])
+                    }
+                }
             }
             
             TextField("Enter fullname", text: $vm.fullname)
@@ -49,9 +56,10 @@ struct SignUpView: View {
             Text(vm.authService.currentUser?.email ?? "no user")
             Button("SignUp") {
                 Task{
-                    if photoPickerVM.outputUiImage != nil {
-                        try await photoPickerVM.uploadUiImageToFirebaseStorage()
-                        vm.profilePhotoUrl = photoPickerVM.imageUrl
+// changed this     if photoPickerVM.outputUiImage != nil {
+                    if selectedPickerItemInSignUp != nil {
+                        try await photoPickerVM.uploadUiImageToFirebaseStorage(folderName: "profileImages")
+                        vm.profilePhotoUrl = photoPickerVM.firebaseStorageImageUrls.first
                     }
                     try await vm.signUp()
                     if vm.currentAuthUserSession != nil{

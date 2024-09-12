@@ -62,7 +62,7 @@ class AuthViewModel : ObservableObject {
         }
     }
     func uploadUserDataToFirestore(id : String) async throws{
-        let newUser = UsersModel(email: email, password: password, profilePhotoUrl: profilePhotoUrl,fullname: fullname)
+        let newUser = UsersModel(email: email, profilePhotoUrl: profilePhotoUrl,fullname: fullname)
         guard let encodedUser = try? Firestore.Encoder().encode(newUser) else { return }
         try await Firestore.firestore().collection("users").document(id).setData(encodedUser)
     }

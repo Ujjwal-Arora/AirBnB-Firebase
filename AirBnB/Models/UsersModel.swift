@@ -8,10 +8,10 @@
 import Foundation
 import FirebaseFirestore
 
-struct UsersModel : Identifiable , Codable {
+struct UsersModel : Identifiable , Codable, Hashable {
     @DocumentID var id : String?
     let email : String
-    let password : String
+   // let password : String
     let profilePhotoUrl : String?
     let fullname : String?
 

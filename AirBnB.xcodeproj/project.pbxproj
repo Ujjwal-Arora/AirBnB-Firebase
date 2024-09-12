@@ -18,9 +18,10 @@
 		A8833B7C2C90CEC700AC7101 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B7B2C90CEC700AC7101 /* AuthViewModel.swift */; };
 		A8833B7E2C90DA4C00AC7101 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B7D2C90DA4C00AC7101 /* LoginView.swift */; };
 		A8833B802C90DA5400AC7101 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B7F2C90DA5400AC7101 /* SignUpView.swift */; };
-		A8833B822C90E4A200AC7101 /* PhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B812C90E4A200AC7101 /* PhotoPickerViewModel.swift */; };
 		A8833B872C91138E00AC7101 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A8833B862C91138E00AC7101 /* FirebaseFirestore */; };
 		A8833B892C91CA3400AC7101 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A8833B882C91CA3400AC7101 /* FirebaseStorage */; };
+		A8833B8F2C92133200AC7101 /* UploadListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B8E2C92133200AC7101 /* UploadListingView.swift */; };
+		A8833B992C9267AB00AC7101 /* mm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8833B982C9267AB00AC7101 /* mm.swift */; };
 		A89B45F92C8DB8C100250052 /* ListingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89B45F82C8DB8C100250052 /* ListingsModel.swift */; };
 		A89B45FB2C8DCEA000250052 /* DeveloperPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89B45FA2C8DCEA000250052 /* DeveloperPreview.swift */; };
 		A89B45FF2C8DD55A00250052 /* ExploreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89B45FE2C8DD55A00250052 /* ExploreService.swift */; };
@@ -46,7 +47,8 @@
 		A8833B7B2C90CEC700AC7101 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A8833B7D2C90DA4C00AC7101 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A8833B7F2C90DA5400AC7101 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		A8833B812C90E4A200AC7101 /* PhotoPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModel.swift; sourceTree = "<group>"; };
+		A8833B8E2C92133200AC7101 /* UploadListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadListingView.swift; sourceTree = "<group>"; };
+		A8833B982C9267AB00AC7101 /* mm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mm.swift; sourceTree = "<group>"; };
 		A89B45F82C8DB8C100250052 /* ListingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsModel.swift; sourceTree = "<group>"; };
 		A89B45FA2C8DCEA000250052 /* DeveloperPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperPreview.swift; sourceTree = "<group>"; };
 		A89B45FE2C8DD55A00250052 /* ExploreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreService.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		A86814022C8DB54600931A9D /* AirBnB */ = {
 			isa = PBXGroup;
 			children = (
+				A8833B8C2C92130C00AC7101 /* UploadListing */,
 				A89B45F62C8DB66300250052 /* App */,
 				A89B46052C8DE0A300250052 /* Components */,
 				A89B45F22C8DB62400250052 /* Core */,
@@ -127,7 +130,6 @@
 		A8833B762C90C9E800AC7101 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A8833B812C90E4A200AC7101 /* PhotoPickerViewModel.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -155,6 +157,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8833B8C2C92130C00AC7101 /* UploadListing */ = {
+			isa = PBXGroup;
+			children = (
+				A8833B8E2C92133200AC7101 /* UploadListingView.swift */,
+				A8833B982C9267AB00AC7101 /* mm.swift */,
+			);
+			path = UploadListing;
 			sourceTree = "<group>";
 		};
 		A89B45F12C8DB61000250052 /* Extension */ = {
@@ -331,17 +342,18 @@
 				A89B45FF2C8DD55A00250052 /* ExploreService.swift in Sources */,
 				A86814062C8DB54600931A9D /* MainTabView.swift in Sources */,
 				A89B45FB2C8DCEA000250052 /* DeveloperPreview.swift in Sources */,
-				A8833B822C90E4A200AC7101 /* PhotoPickerViewModel.swift in Sources */,
 				A89B460E2C8E402700250052 /* SearchAndFilterBar.swift in Sources */,
 				A8833B742C90C90600AC7101 /* UsersModel.swift in Sources */,
 				A8833B7A2C90CA1100AC7101 /* ProfileView.swift in Sources */,
 				A89B46102C8E480F00250052 /* FiltersView.swift in Sources */,
 				A89B45F92C8DB8C100250052 /* ListingsModel.swift in Sources */,
+				A8833B992C9267AB00AC7101 /* mm.swift in Sources */,
 				A8833B7E2C90DA4C00AC7101 /* LoginView.swift in Sources */,
 				A89B460C2C8DEA8900250052 /* ListingDetailView.swift in Sources */,
 				A89B46072C8DE0C700250052 /* ListingImageCarouselView.swift in Sources */,
 				A8833B7C2C90CEC700AC7101 /* AuthViewModel.swift in Sources */,
 				A89B46022C8DD61000250052 /* ExploreVIew.swift in Sources */,
+				A8833B8F2C92133200AC7101 /* UploadListingView.swift in Sources */,
 				A86814042C8DB54600931A9D /* AirBnBApp.swift in Sources */,
 				A8833B802C90DA5400AC7101 /* SignUpView.swift in Sources */,
 				A89B46042C8DD65500250052 /* ExploreViewModel.swift in Sources */,

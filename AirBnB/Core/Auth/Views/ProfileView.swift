@@ -51,6 +51,9 @@ struct ProfileView: View {
                 
                 vm.signOut()
             }
+            NavigationLink("new listing view") {
+                UploadListingView(vm: vm)
+            }
 
         }.navigationTitle("Profile view")
     }
