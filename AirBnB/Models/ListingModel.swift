@@ -1,5 +1,5 @@
 //
-//  ListingsModel.swift
+//  ListingModel.swift
 //  AirBnB
 //
 //  Created by Ujjwal Arora on 08/09/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ListingsModel : Identifiable, Codable, Hashable  {
+struct ListingModel : Identifiable, Codable, Hashable  {
     var id = UUID().uuidString
     let title : String
     let rating : Double //remove this as i wont be calculating this. Priority 0 functions banane h jaan mat le meri
