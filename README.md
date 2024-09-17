@@ -1,13 +1,15 @@
 # Airbnb Clone
 
-This project is a SwiftUI-based Airbnb clone application that includes Firebase authentication, Firestore integration, and photo uploading capabilities. The app follows the MVVM architecture and makes use of the PhotosPicker component for selecting profile images. The app supports user sign-up, login, and logout functionalities, along with the ability to update the user’s profile photo during the sign-up process.
+This project is a SwiftUI-based Airbnb clone application that includes Firebase authentication, Firestore integration, user profile uploads, listing uploads, MapKit for property location display, and location filtering capabilities. The app follows the MVVM architecture. Users can sign up, log in, log out, update their profile photo, upload new listings with images and details, and view/filter listing properties.
 
 ## Features
 
 - User Authentication (Sign-up, Login, Logout) using Firebase.
-- Firestore integration for storing and retrieving user data.
+- Firestore integration for storing and retrieving user and listing data.
 - Upload user profile photos to Firebase Storage.
-- Display and select profile photos using the `PhotosPicker` component.
+- Upload property listings with images, descriptions, and locations to Firestore.
+- Display property locations using MapKit.
+- Filter listings based on location.
 - MVVM architecture for clear separation of concerns.
 - Asynchronous network requests using `async/await`.
 
@@ -15,21 +17,9 @@ This project is a SwiftUI-based Airbnb clone application that includes Firebase 
 
 - SwiftUI for building the user interface.
 - Firebase Authentication for managing user accounts.
-- Firebase Firestore for cloud database storage.
-- Firebase Storage for photo uploads.
+- Firebase Firestore for cloud database storage (users and listings).
+- Firebase Storage for uploading profile photos and listing images.
+- MapKit for displaying and interacting with property locations on a map.
 - MVVM architecture pattern.
-- Swift concurrency with `async/await` for network requests.
-- `PhotosPicker` for image selection.
-
-## Prerequisites
-
-- Xcode 14.0 or later.
-- A valid Firebase project setup with Firestore and Firebase Authentication enabled.
-- Firebase Storage for uploading profile photos.
-
-## Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/yourusername/airbnb-clone.git
+- Swift concurrency with async/await for network requests.
+- PhotosPicker for image selection.
